@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ml-hero-bot
+    runtime: python
+    plan: free
+    buildCommand: pip3 install -r requirements.txt
+    startCommand: python3 main.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: BOT_TOKEN
+        sync: false
+      - key: OWNER_ID
+        sync: false
+      - key: DATABASE_URL
+        sync: false
